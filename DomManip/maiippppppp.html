@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        p{
+            border-radius: 10px solid red;
+        }
+    </style>
+    
+    
+    <title>Document</title>
+</head>
+<body> <div align="center">
+    <h1>sign up</h1>
+    <label class="form-label" for="form2Example1">username</label><br><input id="nom" type="text" placeholder="Choose a username"  class="form-control"required><br> <p id="use"></p>
+    <label class="form-label" for="form2Example2">email</label><br><input type="text"  id="email" placeholder="Enter your email" class="form-control" required><br> <p id="em"></p>
+    <label class="form-label" for="form2Example3">password</label><br>
+    <input type="password" name="" id="password" placeholder="Enter a strong password" required class="form-control"><br><p id="pass"></p>
+    <label class="form-label" for="form2Example4">confirm your password</label><br><input type="password" name="" id="confirm" placeholder="Reenter your password" class="form-control" required><p id="conf"></p>
+    <button  onclick="but()" id="button" style="background-color: rgb(158, 165, 180);">SIGN UP </button></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    document.getElementById('use').style.color="red"
+    document.getElementById('pass').style.color= 'red'
+    document.getElementById('conf').style.color= 'red'
+    function validpass() {var x = document.getElementById('confirm').value
+        var a = 0
+        var z =document.getElementById('nom').value
+       var p = document.getElementById('password').value
+        document.getElementById('pass').innerHTML =""
+        document.getElementById('conf').innerHTML= ""
+        document.getElementById('em').style.color="red"
+        var y = document.getElementById('email').value
+        document.getElementById('em').innerHTML =""
+        document.getElementById('use').innerHTML=""
+        
+    if (p.length < 8) {
+        document.getElementById('pass').innerHTML += "Your password must be at least 8 characters <br>"
+        a++
+        
+    }
+    if (p.search(/[a-z]/i) < 0) {
+        document.getElementById('pass').innerHTML +="Your password must contain at least one letter.<br>"
+    a++
+    }
+    if (p.search(/[0-9]/) < 0) {
+        document.getElementById('pass').innerHTML +="Your password must contain at least one digit<br>."
+        a++
+    }
+    
+        
+    
+    
+    if (p.search(/(?=.*[!#$%&? "])/i) < 0) {
+        a++
+        document.getElementById('pass').innerHTML +="Your password must contain at least one symbol.<br>"
+       
+} if(a===0){ document.getElementById('password').style.border = "green solid 2px"}else{
+    document.getElementById('password').style.border = "red solid 2px"
+}
+       
+
+if(p!==x){
+    document.getElementById('conf').innerHTML= "password isn t the same"
+
+    document.getElementById('confirm').style.border = "red solid 2px"
+}
+else{
+    document.getElementById('confirm').style.border = "green solid 2px"
+}
+ if(!y.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+    document.getElementById('em').innerHTML +="Your email isn t valid.<br>"
+    document.getElementById('email').style.border = "red solid 2px"
+}else{
+    document.getElementById('email').style.border = "green solid 2px"
+} if(z.length<3){
+    document.getElementById('use').innerHTML+="your username must contain at least 3 letters"
+    document.getElementById('nom').style.border = "red solid 2px"
+}else{
+    document.getElementById('nom').style.border = "green solid 2px"
+}
+       }
+       document.getElementById('password').addEventListener("input",validpass)
+       document.getElementById('email').addEventListener("input",validpass)
+       document.getElementById('nom').addEventListener("input",validpass)
+       document.getElementById('confirm').addEventListener("input",validpass)
+      
+       function but(){
+        var x = document.getElementById('confirm').value
+        
+        var z =document.getElementById('nom').value
+       var p = document.getElementById('password').value
+       
+        var y = document.getElementById('email').value
+      
+        
+       if(z.length>2 && y.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) 
+        && p==x   ){ 
+           document.getElementById('button').innerHTML = '<a href="slide.html" style="background-color: green;" >SIGN up </a>'
+}else {
+    document.getElementById('button').innerHTML ="SIGN up";
+    alert('les infromation sont uncorrect');
+} }
+</script>
+</body>
+</html>

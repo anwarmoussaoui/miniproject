@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+ <style>
+    body{
+        background-color: darkgray;
+    }
+     div#cen{
+        float: left;
+       width: 75%;
+     }
+     div#center{
+        float: left;
+         width: 25%;
+
+     }
+     img.test{
+        padding: 0 6px;
+  float: left;
+  width: 10%;     }
+    </style>
+</head>
+<body>
+    <div align="center" ><h1>script market</h1></div>
+    <div id="center" >
+    <input type="text" class="search" placeholder="Search" name="search" id="searchh"><button id="sear" onclick="anwar()">search</button>
+     <br>
+        <select name="langues" id="lang"> filtre
+            <option value="HTML">html</option>
+            <option value="CSS">css</option>
+            <option value="PHP">php</option>
+            <option value="PYTHON">python</option>
+        <option value="JS">js</option></select><br>
+            0$<input type="range" id="price" min="0" max="80">80$ <br>
+            <p id="test"> 
+               
+            
+            </p>
+    </div>
+        
+        <div id="cen" class="content2 col-9 d-flex flex-wrap justify-content-between" > </div>
+    <script>
+         var base =[{
+        img: './images/javascriptDef.png',
+        title: 'what is javascript?',
+        type:'JS',
+        price: 9.9
+    },
+    {
+        img: './images/htmlBasics.PNG',
+        title: 'basics of HTML',
+        type:'HTML',
+        price: 5.9
+    },
+    {
+        img: './images/htmlElements.png',
+        title: 'HTML elements and tags',
+        type:'HTML',
+        price: 9.9
+    },
+    {
+        img: './images/cssSelectors.jpg',
+        title: 'CSS selectors',
+        type:'CSS',
+        price: 69.9
+    },
+    {
+        img: './images/javascriptVariables.png',
+        title: 'variables and data type of javascript',
+        type:'JS',
+        price: 19.9
+    },
+    {
+        img: './images/javascriptOperators.png',
+        title: 'Javascript operators and conditions',
+        type:'JS',
+        price: 29.9
+    },
+    {
+        img: './images/htmlAttrVal.jpg',
+        title: 'HTML attributes and values',
+        type:'HTML',
+        price: 19.9
+    },
+    {
+        img: './images/cssProperties.png',
+        title: 'CSS properties',
+        type:'CSS',
+        price: 29.9
+    },
+    {
+        img: './images/javascriptObjects.png',
+        title: 'Javascript objects and arrays',
+        type:'JS',
+        price: 39.9
+    },
+    {
+        img: './images/cssMesures.png',
+        title: 'mesures and unites of CSS',
+        type:'CSS',
+        price: 19.9
+    },
+    {
+        img: './images/cssAnimation.png',
+        title: 'CSS animations',
+        type:'CSS',
+        price: 19.9
+    },
+    {
+        img: './images/javascriptFunctions.png',
+        title: 'The basics of javascript',
+        type:'JS',
+        price: 29.9
+    },
+    {
+        img: './images/javascriptEvents.png',
+        title: 'javascript events',
+        type:'JS',
+        price: 59.9
+    },
+    {
+        img: './images/cssColors.png',
+        title: 'css colors',
+        type:'css',
+        price: 29.9
+    },
+    {
+        img: './images/phpBasics.png',
+        title: 'getting started with php',
+        type:'php',
+        price: 15.9
+    },
+    {
+        img: './images/javascriptFunctions2.png',
+        title: 'functions and loops with javascript',
+        type:'JS',
+        price: 19.9
+    },
+    {
+        img: './images/phpDataBase.png',
+        title: 'connecting to database using PHP',
+        type:'PHP',
+        price: 29.9
+    },
+    {
+        img: './images/phpCRUD.png',
+        title: 'manipulating crud using php',
+        type:'php',
+        price: 45.9
+    },
+    {
+        img: './images/javascriptDOM.png',
+        title: 'DOM the power of javascript',
+        type:'JS',
+        price: 23.9
+    }
+
+];
+var cen=document.querySelector('#cen')
+        base.forEach(e=>{
+            document.getElementById('cen').innerHTML +=  '<div class="card col-3 me-2 mb-2"><img class="card col-3 me-2 mb-2" src="'+ e.img +'" alt="testing">'+  e.type +" : " +e.price+"$ <br></div>";
+              } )
+               var choix =  document.getElementById('lang')
+        function testt(){
+            document.getElementById('cen').innerHTML = ""
+            var x = document.getElementById('price').value
+            document.getElementById('test').innerHTML = "value : "+ x+"$"
+            base.forEach(e=>{if(e.price<x)
+           var div= document.createElement('div')
+           var img=document.createElement('img')
+           div.setAttribute('class','card col-3 me-2 mb-2')
+           img.src=e.img
+           var cent= document.createTextNode(e.type +' : ' +e.price+'$')
+           div.appendChild(img)
+           div.appendChild(cent)
+
+           cen.appendChild(div)
+
+
+               } )
+            
+        }
+        function htm(){
+            document.getElementById('cen').innerHTML = ""
+           if(choix.value==="HTML"){
+            base.forEach(e=>{if(e.type==="HTML")
+           var div= document.createElement('div')
+           var img=document.createElement('img')
+           div.setAttribute('class','card col-3 me-2 mb-2')
+           img.src=e.img
+           var cent= document.createTextNode(e.type +' : ' +e.price+'$')
+           div.appendChild(img)
+           div.appendChild(cent)
+
+           cen.appendChild(div)
+               } )
+           }
+           if(choix.value==="PYTHON"){
+            base.forEach(e=>{if(e.type==="PYTHON")
+           var div= document.createElement('div')
+           var img=document.createElement('img')
+           div.setAttribute('class','card col-3 me-2 mb-2')
+           img.src=e.img
+           var cent= document.createTextNode(e.type +' : ' +e.price+'$')
+           div.appendChild(img)
+           div.appendChild(cent)
+
+           cen.appendChild(div)
+               } )
+           }
+           if(choix.value==="PHP"){
+            base.forEach(e=>{if(e.type==="PHP")
+            document.getElementById('cen').innerHTML +=  '<div class="card col-3 me-2 mb-2"><img class="card col-3 me-2 mb-2" src="'+ e.img +'" alt="testing">'+  e.type +" <br>" +e.price+"$<br></div";
+               } )
+           }
+           if(choix.value==="CSS"){
+            base.forEach(e=>{if(e.type==="CSS")
+           var div= document.createElement('div')
+           var img=document.createElement('img')
+           div.setAttribute('class','card col-3 me-2 mb-2')
+           img.src=e.img
+           var cent= document.createTextNode(e.type +' : ' +e.price+'$')
+           div.appendChild(img)
+           div.appendChild(cent)
+
+           cen.appendChild(div)
+               } )
+           }if(choix.value==="JS"){
+            base.forEach(e=>{if(e.type==="JS")
+           var div= document.createElement('div')
+           var img=document.createElement('img')
+           div.setAttribute('class','card col-3 me-2 mb-2')
+           img.src=e.img
+           var cent= document.createTextNode(e.type +' : ' +e.price+'$')
+           div.appendChild(img)
+           div.appendChild(cent)
+
+           cen.appendChild(div)
+               } )
+           }
+
+        }
+        document.getElementById('price').addEventListener("change",testt)
+        document.getElementById('lang').addEventListener("change",htm)
+        function anwar() {
+            
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('searchh').value;
+  
+   document.getElementById('cen').innerHTML =  '';
+var search = input.split(" ");
+ 
+  for (i = 0; i < base.length; i++) {
+    a = base[i].type;
+   
+    if (base[i].type.includes(input)) {
+        document.getElementById('cen').innerHTML +=  '<div class="card col-3 me-2 mb-2"><img class="card col-3 me-2 mb-2" src="'+ base[i].img +'" alt="testing">'+  base[i].type +" <br> " +base[i].price+"$ </div> <br> ";
+    } 
+  }
+}
+document.getElementById('searchh').addEventListener("input",anwar)
+
+    </script>
+</body>
+</html>
